@@ -20,5 +20,19 @@ public class IntermediateOperations {
                 .limit(4)
                 .collect(Collectors.toUnmodifiableList());
         System.out.println("Limit and Skip : " + limited);
+
+
+        //Flatmap
+        List<List<String>> listOfLists = Arrays.asList(
+                Arrays.asList("a", "b"),
+                Arrays.asList("c", "d", "e"),
+                Arrays.asList("f")
+        );
+
+        List<String> flatList = listOfLists.stream()
+                .flatMap(l -> l.stream())
+                .collect(Collectors.toUnmodifiableList());
+
+        System.out.println("Flatten list : " + flatList);
     }
 }
