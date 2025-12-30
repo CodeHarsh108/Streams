@@ -9,7 +9,7 @@ public class CreatingStreams {
 
         //Map //also keySet().stream() or values().stream()
         Map<String, Integer> m = Map.of("A", 1, "B", 2);
-        m.entrySet().stream().forEach(e -> System.out.println(e.getKey() + " = " + e.getValue()));
+        m.entrySet().forEach(e -> System.out.println(e.getKey() + " = " + e.getValue()));
 
         // Parallel Stream
 

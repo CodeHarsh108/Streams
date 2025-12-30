@@ -14,7 +14,7 @@ public class TerminalOperations {
         longest.ifPresent(w -> System.out.println("Longest : " + w));
 
         //count
-        Long count= words.stream()
+        long count= words.stream()
                 .filter(w -> w.contains("a"))
                 .count();
         System.out.println("Containing a : " + count);

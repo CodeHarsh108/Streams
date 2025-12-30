@@ -5,6 +5,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class CustomCollector {
     public static void main(String[] args) {
@@ -12,12 +13,12 @@ public class CustomCollector {
         Supplier<StringBuilder> supplier = StringBuilder::new;
 
         BiConsumer<StringBuilder, String> accumulator = (sb, s) -> {
-            if(sb.length() > 0) sb.append(", ");
+            if(!sb.isEmpty()) sb.append(", ");
             sb.append(s);
         };
 
         BinaryOperator<StringBuilder> combiner = (sb1, sb2) -> {
-            if (sb1.length() > 0 && sb2.length() > 0){
+            if (!sb1.isEmpty() && !sb2.isEmpty()){
                 sb1.append(", ");
             }
             sb1.append(sb2);
@@ -34,8 +35,7 @@ public class CustomCollector {
         );
 
         String result =
-                List.of("Java", "Streams", "Rule")
-                        .stream()
+                Stream.of("Java", "Streams", "Rule")
                         .collect(customCollector);
 
         System.out.println(result);

@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -24,7 +23,7 @@ public class StreamBasics {
                 .filter(f -> f.length() > 5)
                 .map(String::toUpperCase)
                 .sorted()
-                .collect(Collectors.toList());
+                .toList();
 
         System.out.println("Filtered Fruits : " + result);
 

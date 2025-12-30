@@ -1,5 +1,5 @@
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,14 +11,14 @@ public class IntermediateOperations {
         //Distinct
         List<Integer> unique = numbers.stream()
                 .distinct()
-                .collect(Collectors.toList());
+                .toList();
         System.out.println("Distinct : " + unique);
 
         //limit and skip
         List<Integer> limited = numbers.stream()
                 .skip(3)
                 .limit(4)
-                .collect(Collectors.toUnmodifiableList());
+                .toList();
         System.out.println("Limit and Skip : " + limited);
 
 
@@ -30,8 +30,8 @@ public class IntermediateOperations {
         );
 
         List<String> flatList = listOfLists.stream()
-                .flatMap(l -> l.stream())
-                .collect(Collectors.toUnmodifiableList());
+                .flatMap(Collection::stream)
+                .toList();
 
         System.out.println("Flatten list : " + flatList);
     }

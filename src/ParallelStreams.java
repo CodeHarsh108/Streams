@@ -6,7 +6,7 @@ public class ParallelStreams {
     public static void main(String[] args) {
         List<Integer> numbers = IntStream.range(1, 1000000)
                 .boxed()
-                .collect(Collectors.toList());
+                .toList();
 
         //Sequential Stream
         long startTime = System.currentTimeMillis();
